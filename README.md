@@ -1,1 +1,33 @@
-# Foleza
+Team members:
+Andrea Mano,
+Eden Pere,
+Elda Hysa,
+Eranda Baho,
+Megi Luca(team leader)
+
+In high levels our work will be devided in sections, meantioned below:
+Modelling Team: All of us
+Developing Team: Andrea Mano(Back end functionalities developer), Eranda Baho(Development of graphic interface), Megi Lluca(Modelling and construction of the database)
+Maintenance Team: Elda Hysa, Eden Pere (Deployment, placing the online site in the domain foleza.com and the creation of final versions of the necessary documentation for deliveries)
+
+Also, due to the problems or difficulties we may encounter along the way, these tasks may be variable.
+
+Description:
+Nowadays we all know the difficulty of renting an apartment in a short time especially in crowded cities like Tirana, the long hours spent finding contact channels with house owners and in some cases no one  showing up. Foleza is created to make your life easier as a website that enables people to list, search and book apartments for rent for a short-term period. Everyone who visits Albania for a short time (tourists, businessman etc) can search for apartments or houses, which can be rented for a varying period of time from 1 day to several weeks.
+There are two main factors, user and administrator. The administrator is primarily responsible for maintenance of data coming from users. The user is offered several services such as: creating an account where their personal data, rented or desired houses, the possibility of searching for the house by city names, dates available or types of houses, listing of houses and also booking them.
+
+
+The goal of the project is to create a website that enables users to list apartments for rent and then search for such within the territory of Albania. It is expected that for ease of choice, many users will prefer this website. The benefit of the developer group will be from advertisements that are made by different companies. 
+
+What will be obtained from this project:
+• Users: will have a unique portal of its kind in Albania. Ease of interface and speed of services make this website easy to use from different age groups.
+• Development team: will gain experience in creating a project from beginning, experience in creating documentation etc., this valuable experience to adapt with the job market at the end of studies. Experience in several techniques and programming languages, the possibility to make in-depth research on them. Monetary profit through advertisement.
+
+Objectives of this project:
+•Realization of the project within the specified deadlines. 
+• Preparation of documentation.
+• The user can create an account and log in. 
+• The user can edit their profile. 
+• Preparation of functional search engine.
+• You can list and book houses.
+• Google Maps integration for house locations.
