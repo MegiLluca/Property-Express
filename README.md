@@ -13,7 +13,7 @@ Maintenance Team: Elda Hysa, Eden Pere (Deployment, placing the online site in t
 Also, due to the problems or difficulties we may encounter along the way, these tasks may be variable.
 
 Description:
-Nowadays we all know the difficulty of renting an apartment in a short time especially in crowded cities like Tirana, the long hours spent finding contact channels with house owners and in some cases no one  showing up. Foleza is created to make your life easier as a website that enables people to list, search and book apartments for rent for a short-term period. Everyone who visits Albania for a short time (tourists, businessman etc) can search for apartments or houses, which can be rented for a varying period of time from 1 day to several weeks.
+Nowadays we all know the difficulty of renting an apartment in a short time especially in crowded cities like Tirana, the long hours spent finding contact channels with house owners and in some cases no one  showing up. Property-Express is created to make your life easier as a website that enables people to list, search and book apartments for rent for a short-term period. Everyone who visits Albania for a short time (tourists, businessman etc) can search for apartments or houses, which can be rented for a varying period of time from 1 day to several weeks.
 There are two main factors, user and administrator. The administrator is primarily responsible for maintenance of data coming from users. The user is offered several services such as: creating an account where their personal data, rented or desired houses, the possibility of searching for the house by city names, dates available or types of houses, listing of houses and also booking them.
 
 
