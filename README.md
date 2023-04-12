@@ -8,7 +8,7 @@ Megi Luca(team leader)
 In high levels our work will be devided in sections, meantioned below:
 Modelling Team: All of us
 Developing Team: Andrea Mano(Back end functionalities developer), Eranda Baho(Development of graphic interface), Megi Lluca(Modelling and construction of the database)
-Maintenance Team: Elda Hysa, Eden Pere (Deployment, placing the online site in the domain foleza.com and the creation of final versions of the necessary documentation for deliveries)
+Maintenance Team: Elda Hysa, Eden Pere (Deployment, placing the online site in the domain property-express.com and the creation of final versions of the necessary documentation for deliveries)
 
 Also, due to the problems or difficulties we may encounter along the way, these tasks may be variable.
 
