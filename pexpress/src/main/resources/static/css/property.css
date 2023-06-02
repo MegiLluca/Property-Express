@@ -1,0 +1,8 @@
+.img-fluid {
+    height: inherit!important;
+    width: 100%!important;
+}
+
+.height-300 {
+    height: 300px!important;
+}

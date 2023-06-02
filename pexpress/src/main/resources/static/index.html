@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property-Express</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/1c6b1d49c9.js" crossorigin="anonymous"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="container mainMenu">
+        <header-component></header-component>
+    </div>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Book your next vaccation</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">With Property-express you can easily find for your next vaccation home in just a few steps. Search for a property below and pack your luggage today!</p>
+            <form action="#">
+                <div id="home-search" class="row mb-3">
+                    <div class="col-md-8 themed-grid-col">
+                        <div class="pb-3">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="location" placeholder="Tirana, Dhermi, Shkoder...">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 themed-grid-col">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="checkin">
+                                    <label for="checkin">Check-in</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 themed-grid-col">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="checkout">
+                                    <label for="checkout">Check-out</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 themed-grid-col">
+                        <button type="button" id="home-search-btn" class="w-100 btn btn-lg btn-warning">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mx-4" id="no-properties">
+
+    </div>
+
+    <div id="top-properties" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mx-4"></div>
+
+    <div class="px-4 py-5 mt-5 bg-dark text-secondary" style="background-color: black!important;">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://res.cloudinary.com/jerrick/image/upload/v1606501679/5fc1452e7bff47001c09315d.jpg" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3 text-warning">Property-Express</h1>
+                <p class="lead">A project by Megi Lluca, Andrea Mano, ...</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn btn-warning btn-lg px-4 me-md-2">
+                        <a href="register.html" class="text-dark text-decoration-none">Register</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-warning btn-lg px-4">
+                        <a href="login.html" class="text-white text-decoration-none">Sign in</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

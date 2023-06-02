@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property-Express</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/editProperty.js"></script>
+    <script src="js/util.js"></script>
+</head>
+
+<body>
+    <div class="container mainMenu">
+        <header-component></header-component>
+    </div>
+    <div>
+        <div class="container-sm text-center col-md-6">
+            <div id="property-error"></div>
+
+            <form action="#">
+                <h1 class="h3 mb-3 fw-normal">Edit property</h1>
+
+                <div class="form-floating py-2">
+                    <input type="text" class="form-control" id="prop-title">
+                    <label for="prop_title">Title</label>
+                </div>
+                <div class="form-floating py-2">
+                    <input type="text" class="form-control" id="description">
+                    <label for="description">Description</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-floating py-2">
+                        <input type="text" class="form-control" id="country">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="col-md-6 form-floating py-2">
+                        <input type="text" class="form-control" id="city">
+                        <label for="city">City</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-floating py-2">
+                        <input type="text" class="form-control" id="street">
+                        <label for="street">Street</label>
+                    </div>
+                    <div class="col-md-3 form-floating py-2">
+                        <input type="text" class="form-control" id="building-number">
+                        <label for="building-number">Building number</label>
+                    </div>
+                    <div class="col-md-3 form-floating py-2">
+                        <input type="text" class="form-control" id="apt-number">
+                        <label for="apt-number">Apartment number</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 form-floating py-2">
+                        <input type="number" class="form-control" id="beds">
+                        <label for="beds">Beds</label>
+                    </div>
+                    <div class="col-md-4 form-floating py-2">
+                        <input type="number" class="form-control" id="bathrooms">
+                        <label for="bathrooms">Bathrooms</label>
+                    </div>
+                    <div class="col-md-4 form-floating py-2">
+                        <input type="number" class="form-control" id="balcony">
+                        <label for="balcny">Balcony</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-floating py-2">
+                        <input type="number" class="form-control" id="price">
+                        <label for="price">Price</label>
+                    </div>
+                    <div class="col-md-6 form-floating py-2">
+                        <input type="text" class="form-control" id="currency">
+                        <label for="currency">Currency</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="width: 300px; height: 200px;">
+                            <img id="imagePreview" class="img-thumbnail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row py-4 ">
+                    <div class="col-md-6">
+                        <div>
+                            <h5>Edit main picture</h5>
+                        </div>
+                        <div class="py-2">
+                            <input class="form-control" type="file" id="main-picture" accept="image/png, image/jpeg">
+                        </div>
+                        <div class="py-2">
+                            <button type="button" class="btn btn-secondary" id="upload-button" style="width: 100%;">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <h5>Add more pictures</h5>
+                        </div>
+                        <div class="py-2">
+                            <input class="form-control" type="file" multiple="" id="pictures" accept="image/png, image/jpeg">
+                        </div>
+                        <div class="py-2">
+                            <button type="button" class="btn btn-secondary" id="upload-pictures" style="width: 100%;">Save All</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="property-edit-btn" type="button" class="w-100 btn btn-lg btn-warning">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property-Express</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/1c6b1d49c9.js" crossorigin="anonymous"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/header.js"></script>
+</head>
+
+<body>
+    <div class="container mainMenu">
+        <header-component></header-component>
+    </div>
+
+    <div class="container-sm">
+        <div class="row">
+            <div class="col-3">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+                    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4">Admin</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-outline-sidebar text-white" id="profile-toggle-btn">
+                                Profile
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-outline-sidebar text-white" id="property-toggle-btn">
+                                Properties
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-outline-sidebar text-white" id="reservation-toggle-btn">
+                                Reservations
+                            </button>
+                        </li>
+                    </ul>
+                    <hr>
+                    <button type="button" class="btn btn-warning text-dark me-2">
+                        Logout
+                    </button>
+                </div>
+            </div>
+            <div class="col-9">
+                <div id="profile-container" class="container" style="display:none">
+                    <h4>Edit Profile</h4>
+                    <form id="profile-form" action="#">
+                        <div class="form-floating py-2">
+                            <input type="text" class="form-control" id="edit-firstName">
+                            <label for="edit-firstName">First name</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <input type="text" class="form-control" id="edit-lastName">
+                            <label for="edit-lastName">Last name</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <input type="date" class="form-control" id="edit-birthday">
+                            <label for="edit-birthday">Birthday</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <input type="email" class="form-control" id="edit-email">
+                            <label for="edit-email">Email address</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <input type="text" class="form-control" id="edit-country">
+                            <label for="edit-country">Country</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <input type="text" class="form-control" id="edit-city">
+                            <label for="edit-city">City</label>
+                        </div>
+                        <div class="form-floating py-2">
+                            <textarea class="form-control" id="edit-description" rows="4s"></textarea>
+                            <label for="edit-description">Description</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="py-2">
+                                    <input class="form-control" type="file" id="main-picture" accept="image/png, image/jpeg">
+                                </div>
+                                <div class="py-2">
+                                    <button type="button" class="btn btn-secondary" id="profile-edit-btn" style="width: 100%;">Save</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button id="profile-edit-btn" type="button" class="w-100 btn btn-lg btn-warning">Save</button>
+                    </form>
+                </div>
+                <div id="property-container" class="container" style="display:none">
+                    <h4>Property List</h4>
+                    <button type="button" class="btn btn-warning my-2">
+                        <a href="newProperty.html" class="text-dark text-decoration-none">New Property</a>
+                    </button>
+                    <div class="list-group" id="user-properties"> </div>
+                </div>
+                <div id="reservation-container" class="container" style="display:none">
+                    <h4>Reservation List</h4>
+                    <div class="list-group" id="user-reservations"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

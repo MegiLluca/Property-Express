@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property-Express</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/property.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://kit.fontawesome.com/1c6b1d49c9.js" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/property.js"></script>
+</head>
+
+<body>
+    <div class="container mainMenu">
+        <header-component></header-component>
+    </div>
+    <div id="gallery-preview" type="button" class="row mb-3 mx-4" data-bs-toggle="modal" data-bs-target="#gallery">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="gallery" tabindex="-1" role="dialog" aria-labelledby="galleryLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: none;">
+            <div class="modal-content">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                    </div>
+                    <div class="carousel-inner">
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-sm">
+
+        <div class="d-flex justify-content-between">
+            <div id="property-header" class="mx-6">
+                <h4></h4>
+            </div>
+        </div>
+
+        <div class="row mx-6 my-5">
+            <!-- property detaily -->
+            <div class="col-md-8">
+                <div class="py-4">
+                    <div>
+                        <h5>About the property</h5>
+                    </div>
+                    <div>
+                        <p id="property-description"></p>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div>
+                        <h5>Utilities</h5>
+                    </div>
+                    <div class="d-flex justify-content-between" id="property-utilities">
+
+                    </div>
+                </div>
+                <!--                 <div class="py-4">
+                    <div>
+                        <h5>About the host</h5>
+                    </div>
+                    <div>
+                        <p id="host-description"></p>
+                    </div>
+                </div> -->
+            </div>
+            <!-- reserve -->
+            <div class="col-md-4">
+                <div class="mx-12" id="property-price"></div>
+                <div class="mx-12" id="property-available"></div>
+
+                <div class="row py-4" id="property-reservation">
+                    <div class="col-md-12 py-2 themed-grid-col">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="checkin">
+                            <label for="checkin">Check-in</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 py-2 themed-grid-col">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="checkout">
+                            <label for="checkout">Check-out</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 py-2 themed-grid-col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="first-name">
+                            <label for="first-name">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 py-2 themed-grid-col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="last-name">
+                            <label for="last-name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 py-2 themed-grid-col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-md-12 themed-grid-col">
+                        <button id="check-availability" class="w-100 btn btn-lg btn-outline-warning">Check Availability</button>
+                    </div>
+                </div>
+
+                <div class="row py-2">
+                    <div class="col-md-12 themed-grid-col">
+                        <button id="reserve" class="w-100 btn btn-lg btn-warning">Reserve</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- map -->
+            <div class="col-md-12">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

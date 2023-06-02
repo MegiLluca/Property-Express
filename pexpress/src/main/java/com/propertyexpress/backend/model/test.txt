@@ -1,0 +1,144 @@
+package com.propertyexpress.backend.model;
+
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Blob;
+import java.sql.Date;
+import java.util.Map;
+import java.util.Set;
+
+@Entity
+@Table(name = "propertyTable")
+public class Property {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="property_id", nullable=false, updatable=false)
+    private long property_id;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
+
+    @Column(name = "title")
+    private String title;
+    @Column(name="mainPicture")
+    @Lob
+    private Blob mainPicture;
+
+    @OneToMany(mappedBy="property")
+    private Set<PropertyImage> images;
+
+    @OneToMany(mappedBy="property")
+    private Set<Review> reviews;
+
+    public Property() {}
+
+    public Property(User user, String title) {
+        this.user = user;
+        this.title = title;
+    }
+
+    public void setMainPicture(Blob mainPicture) {
+        this.mainPicture = mainPicture;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setImages(Set<PropertyImage> images) {
+        this.images = images;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public long getProperty_id() {
+        return property_id;
+    }
+
+    public void setProperty_id(long property_id) {
+        this.property_id = property_id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Blob getMainPicture() {
+        return mainPicture;
+    }
+
+    public Set<PropertyImage> getImages() {
+        return images;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+}
+
+
+
+@Entity
+@Table(name = "userTable")
+public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @Column(name="user_id", nullable=false, updatable=false)
+    private long id;
+    @Column(name = "email_address")
+    private String email;
+    @OneToMany(mappedBy="user")
+    private Set<Property> properties;
+    public User() {}
+    public User(String email) {
+        this.email = email;
+    }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setProperties(Set<Property> properties) {
+        this.properties = properties;
+    }
+}
+
+
+    @PostMapping("/property")
+    public ResponseEntity createProperty(@RequestBody Map<String, String> jsonData) {
+        Property property = new Property();
+        property.setTitle(jsonData.get("title"));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userDetailsService.loadUserByEmail(authentication.getName());
+        property.setUser(user);
+        propertyRepository.save(property);
+        return new ResponseEntity<>("Property saved successfully", HttpStatus.CREATED);
+    }
