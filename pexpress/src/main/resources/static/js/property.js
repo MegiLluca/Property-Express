@@ -59,6 +59,10 @@ jQuery(() => {
     var lastName = $('#last-name');
     var email = $('#email');
 
+    var reviewFirstName = $('#review-first-name');
+    var reviewLastName = $('#review-last-name');
+    var reviewDescription = $('#review-description');
+
 
     if (urlParams.id) {
         // get property details
@@ -69,9 +73,11 @@ jQuery(() => {
                 property = response;
                 setHeader(property);
                 setImages(property);
+                setMainImage(property);
                 setPrice(property);
                 setPropertyDescription(property);
                 setPropertyUtilities(property);
+                setPropertyReviews(property);
             },
             error: function(xhr) {
                 console.log(xhr);
@@ -80,14 +86,16 @@ jQuery(() => {
 
                     setHeader(property);
                     setImages(property);
+                    setMainImage(property);
                     setPrice(property);
                     setPropertyDescription(property);
                     setPropertyUtilities(property);
+                    setPropertyReviews(property);
                 }
             }
         });
 
-        // pre-fill reservation form 
+        // pre-fill reservation form
         if (urlParams.checkInDate) {
             checkin.val(checkInDate);
         }
@@ -95,6 +103,9 @@ jQuery(() => {
         if (urlParams.checkInDate) {
             checkout.val(checkOutDate)
         }
+
+        // get property reviews
+        getPropertyReviews(urlParams.id);
     }
 
     $('#check-availability').on('click', function(e) {
@@ -129,7 +140,35 @@ jQuery(() => {
                 }
             });
         }
-    })
+    });
+
+
+
+    $('#add-review').on('click', function(e) {
+        var review = {
+            property_id: urlParams.id,
+            reviewFirstName: reviewFirstName.val(),
+            reviewLastName: reviewLastName.val(),
+            lastName: lastName.val(),
+            reviewDescription: reviewDescription.val()
+        };
+
+        $.ajax({
+            url: "http://localhost:8080/api/v1/review",
+            type: "POST",
+            data: JSON.stringify(review),
+            contentType: "application/json",
+            success: function(response) {
+                getPropertyReviews(urlParams.id);
+            },
+            error: function(xhr) {
+                console.log(xhr);
+                var msg = `<div class="alert alert-danger" role="alert">Could not save review</div>`
+                $('#review-msg').empty();
+                $('#review-msg').append(msg)
+            }
+        });
+    });
 
 
     // set title, locaton, and host
@@ -205,6 +244,22 @@ jQuery(() => {
         }
     }
 
+    function setMainImage(details) {
+        var mainImageDiv = $("#property-image");
+        imageUrl = "https://thumbs.dreamstime.com/b/modern-apartment-interior-grey-sofa-footstool-armcha-armchair-wooden-floor-tv-colorful-graphic-photo-concept-122713421.jpg"
+
+        if (details.mainPicture) {
+            imageUrl = blob_image(details.mainPicture);
+        }
+
+        var el = `
+        <div class="bd-placeholder-img card-img-top" style="max-width: 100%; height: auto;">
+            <img class="img-thumbnail" src="${imageUrl}">
+        </div>`
+
+        mainImageDiv.append(el);
+    }
+
     function setPropertyDescription(details) {
         var propDescriptionDiv = $("#property-description");
         propDescriptionDiv.text(details.description)
@@ -213,12 +268,18 @@ jQuery(() => {
 
     function setPropertyUtilities(details) {
         var propertyUtilitiesDiv = $("#property-utilities");
+
         if (details.utilities) {
             details.utilities.forEach(function(utility) {
                 var item = `<div> <span> <i class="fa-solid ${utilitiesIconMap[utility]} fa-2xl"></i></span></div>`;
                 propertyUtilitiesDiv.append(item);
             });
         }
+    }
+
+
+    function setPropertyReviews(details) {
+        var reviewListDiv = $("#property-reviews")
     }
 
     function checkAvailability() {
@@ -235,6 +296,44 @@ jQuery(() => {
             contentType: "application/json",
             success: function(response) {
                 setAvailability(response.available, 3, property);
+            },
+            error: function(xhr) {
+                console.log(xhr);
+            }
+        });
+    }
+
+    function getPropertyReviews(propertyId) {
+        var reviewMsgDiv = $('#review-msg');
+        reviewMsgDiv.empty();
+
+        var propertyReviewsDiv = $('#property-reviews');
+        propertyReviewsDiv.empty();
+
+        $.ajax({
+            url: "http://localhost:8080/api/v1/reviews/" + propertyId,
+            type: "GET",
+            success: function(response) {
+                var reviews = response;
+                if (reviews.length === 0) {
+                    var msg = `<div class="alert alert-warning" role="alert">No reviews yet! Add a review below.</div>`
+                    reviewMsgDiv.append(msg);
+                }
+
+                reviews.forEach(function(review) {
+                    console.log(review)
+                    var e =
+                        `
+                        <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">${review.description}</h5>
+                          <small class="text-muted">${review.reviewDate}</small>
+                        </div>
+                        <p class="mb-1"> ${review.firstName}, ${review.lastName}</p>
+                        </a>`;
+                    propertyReviewsDiv.append(e);
+                })
+
             },
             error: function(xhr) {
                 console.log(xhr);

@@ -19,3 +19,9 @@ function parse_query_string(urlParams) {
     }
     return query_string;
 }
+
+function blob_image(image) {
+    var buf = new Uint8Array(image);
+    var blob = new Blob([buf], { type: "image/jpeg" });
+    return window.URL.createObjectURL(blob);
+}

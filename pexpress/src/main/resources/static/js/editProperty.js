@@ -15,6 +15,8 @@ jQuery(() => {
     var price = $("#price")
     var currency = $("#currency")
 
+    var img = document.querySelector("#imagePreview");
+
     function setPropertyDetails(property) {
         title.val(property.title);
         description.val(property.description);
@@ -28,13 +30,7 @@ jQuery(() => {
         balcony.val(property.no_balcony);
         price.val(property.price);
         currency.val(property.currency);
-
-        var buf = new Uint8Array(property.mainPicture);
-        var blob = new Blob([buf], { type: "image/jpeg" });
-        var urlCreator = window.URL;
-        var imageUrl = urlCreator.createObjectURL(blob);
-        var img = document.querySelector("#imagePreview");
-        img.src = imageUrl;
+        img.src = blob_image(property.mainPicture);
     }
 
     if (urlParams.id) {
@@ -109,12 +105,7 @@ jQuery(() => {
                 processData: false,
                 success: function(response) {
                     if (response.mainPicture) {
-                        var buffer = new Uint8Array(response.mainPicture);
-                        var blob = new Blob([buffer], { type: "image/jpeg" });
-                        var urlCreator = window.URL;
-                        var imageUrl = urlCreator.createObjectURL(blob);
-                        var img = document.querySelector("#imagePreview");
-                        img.src = imageUrl;
+                        img.src = blob_image(property.mainPicture);
                     }
                 },
                 error: function(xhr) {

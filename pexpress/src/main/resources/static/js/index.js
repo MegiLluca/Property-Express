@@ -54,6 +54,8 @@ mockProperties = [{
     }
 ]
 
+exampleImage = "https://thumbs.dreamstime.com/b/modern-apartment-interior-grey-sofa-footstool-armcha-armchair-wooden-floor-tv-colorful-graphic-photo-concept-122713421.jpg"
+
 jQuery(() => {
     var topPropertiesDiv = $('#top-properties');
     var topProperties = [];
@@ -90,19 +92,29 @@ jQuery(() => {
 
     function setProperties(properties) {
         topPropertiesDiv.empty();
-        topProperties.forEach(function(property) {
+
+        properties.forEach(function(property) {
+
+            // get image source in right format
+            if (property.mainPicture) {
+                property.mainPicture = blob_image(property.mainPicture);
+            } else {
+                property.mainPicture = exampleImage;
+            }
+
             var propEl = `
             <div class="col property-click" property-id="${property.property_id}" >
                 <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-    
+                <div class="bd-placeholder-img card-img-top" style="max-width: 100%; height: auto;">
+                    <img class="img-thumbnail" src="${property.mainPicture}">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">${property.title}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">${property.city}, ${property.country}</h6>
                     <p class="card-text">${property.description}</p>
 
                     <div class="d-flex justify-content-between align-items-center">
-                        <div style="inline-block">  
+                        <div style="inline-block">
                             <span>
                                 <i class="fa-solid fa-bed"></i> ${property.no_beds}
                             </span>
@@ -132,9 +144,11 @@ jQuery(() => {
             success: function(response) {
                 topProperties = response
                 console.log(response)
+
                 if (response.length === 0) {
                     topProperties = mockProperties;
                 }
+
                 setProperties(topProperties)
             },
             error: function(xhr) {

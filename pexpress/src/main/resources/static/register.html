@@ -15,43 +15,43 @@
 </head>
 
 <body>
-    <div class="container mainMenu">
-        <header-component></header-component>
+<div class="container mainMenu">
+    <header-component></header-component>
+</div>
+<div>
+    <div class="container-sm text-center col-md-6">
+
+        <div id="registration-error"></div>
+        <div id="registration-success"></div>
+
+        <form id="register-form" action="#">
+            <h1 class="h3 mb-3 fw-normal">Register here</h1>
+
+            <div class="form-floating py-2">
+                <input type="text" class="form-control" id="firstName" placeholder="John">
+                <label for="firstName">First name</label>
+            </div>
+            <div class="form-floating py-2">
+                <input type="text" class="form-control" id="lastName" placeholder="Smith">
+                <label for="lastName">Last name</label>
+            </div>
+            <div class="form-floating py-2">
+                <input type="date" class="form-control" id="birthday">
+                <label for="birthday">Birthday</label>
+            </div>
+            <div class="form-floating py-2">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+            </div>
+            <div class="form-floating py-2">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+
+            <button id="register-btn" type="button" class="w-100 btn btn-lg btn-warning">Register</button>
+        </form>
     </div>
-    <div>
-        <div class="container-sm text-center col-md-6">
-
-            <div id="registration-error"></div>
-            <div id="registration-success"></div>
-
-            <form id="register-form" action="#">
-                <h1 class="h3 mb-3 fw-normal">Register here</h1>
-
-                <div class="form-floating py-2">
-                    <input type="text" class="form-control" id="firstName" placeholder="John">
-                    <label for="firstName">First name</label>
-                </div>
-                <div class="form-floating py-2">
-                    <input type="text" class="form-control" id="lastName" placeholder="Smith">
-                    <label for="lastName">Last name</label>
-                </div>
-                <div class="form-floating py-2">
-                    <input type="date" class="form-control" id="birthday">
-                    <label for="birthday">Birthday</label>
-                </div>
-                <div class="form-floating py-2">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                    <label for="email">Email address</label>
-                </div>
-                <div class="form-floating py-2">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <label for="password">Password</label>
-                </div>
-
-                <button id="register-btn" type="button" class="w-100 btn btn-lg btn-warning">Register</button>
-            </form>
-        </div>
-    </div>
+</div>
 </body>
 
 </html>

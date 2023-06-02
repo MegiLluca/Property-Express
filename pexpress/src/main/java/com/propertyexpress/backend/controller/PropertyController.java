@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -92,15 +93,13 @@ public class PropertyController {
     }
 
     @PutMapping("/property/picture/{id}")
-    public ResponseEntity<Property> updatePropertyPicture(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity<Property> updatePropertyPicture(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException, SQLException {
 
         Property property = propertyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Property not exist with id :" + id));
-
         // upload foto
         property.setMainPicture(file.getBytes());
         Property updatedProperty = propertyRepository.save(property);
         return ResponseEntity.ok(updatedProperty);
     }
-
 }

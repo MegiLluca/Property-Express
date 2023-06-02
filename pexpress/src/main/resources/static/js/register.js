@@ -39,7 +39,7 @@ $(document).ready(function() {
             data: JSON.stringify(user),
             contentType: "application/json",
             success: function(response) {
-                registrationError.append(errorMsg);
+                registrationError.append(successMsg);
             },
             error: function(xhr) {
                 console.log("errorr");
